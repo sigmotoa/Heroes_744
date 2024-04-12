@@ -12,16 +12,18 @@ profesorX.Volar = false;
 var imbecibilidad = new Poder();
 imbecibilidad.Nombre = "Imbecibilidad";
 imbecibilidad.Descripcion = "Firmar por tu compañere que no vine";
-imbecibilidad.Nivel = "Nivel 1";
+imbecibilidad.Nivel = NivelPoder.NivelUno;
 
 var alientoFuego = new Poder();
 alientoFuego.Nombre = "Aliento de Fuego";
 alientoFuego.Descripcion = "Lanzar fuego por la boca";
-alientoFuego.Nivel = "Semaforo";
+alientoFuego.Nivel = NivelPoder.NivelDos;
 profesorX.Poderes = new[] {alientoFuego, imbecibilidad};
 
 Console.WriteLine(profesorX.Nombre);
 Console.WriteLine(profesorX.Poderes[0].Nombre);
+
+profesorX.MostrarHeroe();
 class Heroe
 {
    public int Id;
@@ -31,11 +33,23 @@ class Heroe
    public Poder[] Poderes;
    public bool Volar;
 
+   public void MostrarHeroe()
+   {
+      Console.WriteLine(Nombre+ Identidad+ Ciudad+ Poderes+ Volar);
+   }
+
 }
 
 class Poder
 {
    public string Nombre;
    public string Descripcion;
-   public string Nivel;
+   public NivelPoder Nivel;
+}
+
+enum NivelPoder
+{
+   NivelUno,
+   NivelDos,
+   NivelTres
 }
