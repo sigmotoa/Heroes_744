@@ -18,38 +18,55 @@ var alientoFuego = new Poder();
 alientoFuego.Nombre = "Aliento de Fuego";
 alientoFuego.Descripcion = "Lanzar fuego por la boca";
 alientoFuego.Nivel = NivelPoder.NivelDos;
-profesorX.Poderes = new[] {alientoFuego, imbecibilidad};
+profesorX.Poderes = new[] { alientoFuego, imbecibilidad };
 
-Console.WriteLine(profesorX.Nombre);
-Console.WriteLine(profesorX.Poderes[0].Nombre);
+//Console.WriteLine(profesorX.Nombre);
+//Console.WriteLine(profesorX.Poderes[0].Nombre);
 
 profesorX.MostrarHeroe();
+
 class Heroe
 {
-   public int Id;
-   public string Nombre;
-   public string Identidad;
-   public string Ciudad;
-   public Poder[] Poderes;
-   public bool Volar;
+    public int Id;
+    public string Nombre;
+    public string Identidad;
+    public string Ciudad;
+    public Poder[] Poderes;
+    public bool Volar;
 
-   public void MostrarHeroe()
-   {
-      Console.WriteLine(Nombre+ Identidad+ Ciudad+ Poderes+ Volar);
-   }
+    
+    
+    public void MostrarHeroe()
+    {
+        Console.WriteLine($"Nombre: {Nombre}" +
+                          $"\nIdentidad: {Identidad}" +
+                          $"\nCiudad: {Ciudad}" +
+                          $"\nVolar: {Volar}" +
+                          $"\nPoderes:"
+        );
+        MostrarPoderes();
+    }
 
+
+    private void MostrarPoderes()
+    {
+        for (int i = 0; i < Poderes.Length; i++)
+        {
+            Console.WriteLine($"\t{Poderes[i].Nombre}");
+        }
+    }
 }
 
 class Poder
 {
-   public string Nombre;
-   public string Descripcion;
-   public NivelPoder Nivel;
+    public string Nombre;
+    public string Descripcion;
+    public NivelPoder Nivel;
 }
 
 enum NivelPoder
 {
-   NivelUno,
-   NivelDos,
-   NivelTres
+    NivelUno,
+    NivelDos,
+    NivelTres
 }
